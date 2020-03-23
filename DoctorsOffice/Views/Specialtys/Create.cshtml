@@ -1,0 +1,21 @@
+@{
+    Layout = "_Layout";
+}
+
+
+@model DoctorsOffice.Models.Specialty;
+
+<div class="col-md-6 offset-md-3">
+  <div class="form-box">
+    @using (Html.BeginForm())
+    {
+      <div class="form-header">Add A Specialty</div>
+      <div class="form-body">
+          @Html.LabelFor(model => model.SpecialtyName)
+          @Html.TextBoxFor(model => model.SpecialtyName, new { @class="form-control", @placeholder = "Specialty"})
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Add</button>
+   
+    }
+  </div>
+</div>

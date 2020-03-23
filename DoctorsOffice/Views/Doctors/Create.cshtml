@@ -15,9 +15,10 @@
           @Html.TextBoxFor(model => model.Name, new { @class="form-control", @placeholder = "Doctors's Name", required = "required"})
         </div>
         <div class="form-group">
-          @Html.LabelFor(model => model.Specialty)
-          @Html.TextBoxFor(model => model.Specialty, new { @class="form-control", @placeholder = "Specialty"})
+          @Html.Label("Select doctor")
+          @Html.DropDownList("SpecialtyId", null, new { @class="form-control" })
         </div>
+
         <button type="submit" class="btn btn-primary btn-block">Add</button>
       </div>
     }

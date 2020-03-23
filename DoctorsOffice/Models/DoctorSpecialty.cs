@@ -5,8 +5,8 @@ namespace DoctorsOffice.Models
     public int DoctorSpecialtyId { get; set; }
     public int DoctorId { get; set; }
     public int SpecialtyId { get; set; }
-    public Doctor doctor { get; set; }
-    public Specialty specialty { get; set; }
+    public Doctor Doctor { get; set; }
+    public Specialty Specialty { get; set; }
   }
 
 }
