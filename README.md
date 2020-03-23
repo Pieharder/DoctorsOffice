@@ -68,9 +68,9 @@ _Add the MySQL environment variable to the System PATH. Instructions for Windows
 
 _Enter the following commands in Terminal (macOS) or PowerShell (Windows):_
 * ``cd desktop``
-* ``git clone <REPO LINK>``
+* ``git clone https://github.com/dustatron/DoctorsOffice``
 
-_Confirm that you have navigated to the <PROJECT DIRECTORY> directory (e.g., by entering the command_ ``pwd`` _in Terminal)._
+_Confirm that you have navigated to the DoctorsOffice directory (e.g., by entering the command_ ``pwd`` _in Terminal)._
 
 _Recreate the ``<DATABASE NAME>`` database using the following MySQL commands (in Terminal on macOS or PowerShell on Windows):_
 
@@ -78,7 +78,7 @@ _Recreate the ``<DATABASE NAME>`` database using the following MySQL commands (i
 
 
 _Run this application by entering the following command in Terminal (macOS) or PowerShell (Windows):_
-* ``cd <PROJECT DIRECTORY>``
+* ``cd DoctorsOffice``
 * ``dotnet restore``
 * ``dotnet build``
 * ``dotnet run`` or ``dotnet watch run``
