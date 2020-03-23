@@ -5,15 +5,27 @@
 @model DoctorsOffice.Models.Patient
 
 <h4>Add a new patient</h4>
+<div class="row">
+  <div class="col-md-6 offset-md-3">
+    @using (Html.BeginForm())
+    {
+      <div class="form-group">
+        @Html.LabelFor(model => model.Name)
+        @Html.TextBoxFor(model => model.Name, new { @class="form-control" })
+      </div>
 
-@using (Html.BeginForm())
-{
-    @Html.LabelFor(model => model.Name)
-    @Html.TextBoxFor(model => model.Name)
+      <div class="form-group">
+        @Html.LabelFor(model => model.Birthday)
+        @Html.TextBoxFor(model => model.Birthday, new { @class="form-control" })
+      </div>
+      <div class="form-group">
+        @Html.Label("Select doctor")
+        @Html.DropDownList("DoctorId", null, new { @class="form-control" })
+      </div>
 
-    @Html.Label("Select doctor")
-    @Html.DropDownList("DoctorId")
+        <input type="submit" value="Add new patient" class="btn btn-info btn-block" />
+    }
+  </div>
+</div>
 
-    <input type="submit" value="Add new patient" class="btn btn-default" />
-}
-<p>@Html.ActionLink("Show all patient", "Index")</p>
+<p>@Html.ActionLink("Show all patient", "Index", "Patients", null, new {@class="btn btn-success"})</p>

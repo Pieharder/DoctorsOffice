@@ -1,24 +1,34 @@
-@* @{
+@{
   Layout = "_Layout";
 }
 
-@model ToDoList.Models.Item
+@model DoctorsOffice.Models.Patient
 
-<h2>Edit</h2>
+<div class="row">
+  <div class="col-md-6 offset-md-3">
+      <h4 class="text-center">Edit this patient: @Html.DisplayFor(model => model.Name)</h4>
 
-<h4>Edit this task: @Html.DisplayFor(model => model.Description)</h4>
+      @using (Html.BeginForm())
+      {
+          @Html.HiddenFor(model => model.PatientId)
+        <div class="form-group">
+          @Html.LabelFor(model => model.Name)
+          @Html.EditorFor(model => model.Name, new { htmlAttributes = new {@class="form-control"}})
+        </div>
 
-@using (Html.BeginForm())
-{
-    @Html.HiddenFor(model => model.ItemId)
+        <div class="form-group">
+          @Html.LabelFor(model => model.Birthday)
+          @Html.EditorFor(model => model.Birthday, new { htmlAttributes = new {@class="form-control"}})
+        </div>
 
-    @Html.LabelFor(model => model.Description)
-    @Html.EditorFor(model => model.Description)
+        <div class="form-group">
+          @Html.Label("Select Doctor")
+          @Html.DropDownList("DoctorId", null, new { @class="form-control"})
+        </div>
+          <input type="submit" value="Save" class="btn btn-info btn-block" />
+      }
 
-    @Html.Label("Select category")
-    @Html.DropDownList("CategoryId")
+  </div>
+</div>
 
-    <input type="submit" value="Save" />
-}
-
-<p>@Html.ActionLink("Back to list", "Index")</p> *@
+@Html.ActionLink("Back to list", "Index", "Patients", new {@class="btn btn-info"})
