@@ -11,7 +11,7 @@ namespace DoctorsOffice.Controllers
   {
     private readonly DoctorsOfficeContext _db;
 
-    public PatientsController(ToDoListContext db)
+    public PatientsController(DoctorsOfficeContext db)
     {
       _db = db;
     }
@@ -19,8 +19,7 @@ namespace DoctorsOffice.Controllers
 
     public ActionResult Index()
     {
-      List<Item> model = _db.Items.Include(items => items.Category).ToList();
-      return View(model);
+      return View();
     }
   }
 
