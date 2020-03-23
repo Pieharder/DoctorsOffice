@@ -45,24 +45,31 @@ namespace DoctorsOffice.Controllers
 
     public ActionResult Edit(int id)
     {
-      return View();
+      var thisDoctor = _db.Doctors.FirstOrDefault(doctor => doctor.DoctorId == id);
+      return View(thisDoctor);
     }
 
     [HttpPost]
-    public ActionResult Edit(Patient patient)
+    public ActionResult Edit(Doctor doctor)
     {
-      return View();
+      _db.Entry(doctor).State = EntityState.Modified;
+      _db.SaveChanges();
+      return RedirectToAction("Index");
     }
 
     public ActionResult Delete(int id)
     {
-      return View();
+      var thisDoctor = _db.Doctors.FirstOrDefault(doctor => doctor.DoctorId == id);
+      return View(thisDoctor);
     }
 
     [HttpPost, ActionName("Delete")]
-    public ActionResult DeleteCinfirmed(int id)
+    public ActionResult DeleteConfirmed(int id)
     {
-      return View();
+      var thisDoctor = _db.Doctors.FirstOrDefault(doctor => doctor.DoctorId == id);
+      _db.Doctors.Remove(thisDoctor);
+      _db.SaveChanges();
+      return RedirectToAction("Index");
     }
   }
 
