@@ -43,12 +43,18 @@ namespace DoctorsOffice.Controllers
 
     public ActionResult Details(int id)
     {
-      return View();
+      Patient thisPatient = _db.Patients
+            .Include(patient => patient.Doctors)
+            .ThenInclude(join => join.Doctor)
+            .FirstOrDefault(patient => patient.PatientId == id);
+      return View(thisPatient);
     }
 
     public ActionResult Edit(int id)
     {
-      return View();
+      var thisPatient = _db.Patients.FirstOrDefault(patients => patients.PatientId == id);
+      ViewBag.DoctorId = new SelectList(_db.Doctors, "DoctorId", "Name");
+      return View(thisPatient);
     }
 
     [HttpPost]
